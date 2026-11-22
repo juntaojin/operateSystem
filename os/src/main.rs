@@ -1,5 +1,8 @@
 #![no_std]
 #![no_main]
+#[macro_use]
+mod console;
+mod sbi;
 
 use core::arch::global_asm;
 use core::panic::PanicInfo;
@@ -26,5 +29,6 @@ fn clear_bss() {
 #[unsafe(no_mangle)]
 pub fn rust_main() -> ! {
     clear_bss();
+    println!("hello world");
     loop {}
 }
